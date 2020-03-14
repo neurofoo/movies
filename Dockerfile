@@ -6,20 +6,20 @@ COPY ./movies .
 RUN npm install
 RUN npm run build
 
+# copy and install the api server code and build it
 WORKDIR /usr/src/movies-api
 COPY ./movies-api .
 RUN npm install
-# TODO: include a build here to be safe
+RUN npm run build
 
+# install serve to be able to serve the client app
 WORKDIR /usr/src 
 RUN npm install -g serve 
 
-
+# capy the bash main file
 WORKDIR /usr/src
 COPY ./run.sh .
 
-
-# now need to server the client code as well as the server code
 
 EXPOSE 8080
 EXPOSE 4000
