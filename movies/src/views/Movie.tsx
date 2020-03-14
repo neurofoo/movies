@@ -67,7 +67,7 @@ export const MoviePage = (props: Props) => {
   return (
     <>
       <Helmet>
-        <title>{`Frederick Movie App - ${movie.title}`}</title>
+        <title>{`Movie App - ${movie.title}`}</title>
       </Helmet>
       <Segment style={{ marginLeft: '1rem', marginRight: '1rem' }}>
         <Container text>

@@ -1,3 +1,6 @@
 movies/node_modules
 movies-api/node_modules
 *.swp
+.DS_Store
+movies/.DS_Store
+movies-api/.DS_Store
