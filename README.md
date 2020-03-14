@@ -23,4 +23,4 @@ NB: make sure to use the exact ports as above. The react client app is not doing
 
 
 
-If all goes well, you should be able to build the docker image and run it. Then open Chrome and go to http://localhost:8080 (or whatever port number you used).
+If all goes well, you should be able to build the docker image and run it. Then open Chrome and go to http://localhost:8080 
