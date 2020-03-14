@@ -77,10 +77,9 @@ export const MoviePage = (props: Props) => {
                 <Image src={imgPoster} />
               </Grid.Column>
               <Grid.Column width={8}>
-                <Header as='h1'>
-                  {movie?.title} {movie.release_date}
-                </Header>
+                <Header as='h1'>{movie?.title}</Header>
                 <Header as='h5'>{movie?.tagline}</Header>
+                <p>Released on: {movie.release_date}</p>
                 <p>{movie?.overview}</p>
               </Grid.Column>
               <Grid.Column width={3}></Grid.Column>
