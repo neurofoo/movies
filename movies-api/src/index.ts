@@ -64,7 +64,7 @@ app.get('/api/v1/search', async (req, res) => {
   let response = {};
   try {
     const results = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=38faeec190c4e0b14ab8c5e9dfd1249f&query=${query}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`,
     );
     response = results.data;
   } catch (e) {
