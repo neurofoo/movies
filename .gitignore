@@ -4,3 +4,4 @@ movies-api/node_modules
 .DS_Store
 movies/.DS_Store
 movies-api/.DS_Store
+movies-api/.env

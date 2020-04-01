@@ -3,12 +3,24 @@
  */
 import axios from 'axios';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import express from 'express';
+
+dotenv.config();
 
 const app = express();
 const port = 4000;
 
-const popular = `https://api.themoviedb.org/3/movie/popular?api_key=38faeec190c4e0b14ab8c5e9dfd1249f`;
+const API_KEY = process.env.API_KEY;
+console.log(API_KEY);
+
+if (API_KEY === undefined || API_KEY === null) {
+  console.error('No API KEY found in .env file. Exiting.');
+  process.exitCode = 1;
+  process.exit();
+}
+
+const popular = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
 
 app.use(cors());
 
@@ -30,11 +42,9 @@ app.get('/api/v1/movie', async (req, res) => {
   try {
     const id = req.query.id;
     const results = await Promise.all([
+      axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`),
       axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=38faeec190c4e0b14ab8c5e9dfd1249f`,
-      ),
-      axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=38faeec190c4e0b14ab8c5e9dfd1249f`,
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`,
       ),
     ]);
     // Map the responses
